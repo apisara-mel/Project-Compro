@@ -12,6 +12,8 @@ public class cafe {
     private topping tipping;
     private sweetness sweet;
     private size size;
+    private int mel;
+    
 
     public void order(int delivery){
         if(delivery == 1){

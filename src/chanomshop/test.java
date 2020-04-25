@@ -5,12 +5,10 @@ package chanomshop;
 
 public class test {
     public static void main(String[] args) {
-        Cafe c = new Cafe();
+        Oder c = new Oder();
         c.addFlavour("MilkTea" + '\t' , 35);
         
         
-        
-        System.out.println(c);
     }
     
 

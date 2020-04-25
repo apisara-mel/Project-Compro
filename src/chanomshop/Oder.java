@@ -2,7 +2,7 @@ package chanomshop;
 
 
 
-public class Cafe {
+public class Oder {
 
     private Flavour flavour[];
     private int arrayFlavour = 0;
@@ -41,16 +41,26 @@ public class Cafe {
         return false;
     }
 
-    public int getSize(Size size) {
-        if(size == Size.S){
-            this.chanom = 50;
+    public String getSize(Size size) {
+        if(null != size)switch (size) {
+            case S:
+                this.chanom = 50;
+                break;
+            case M:
+                this.chanom = 75;
+                break;
+            case L:
+                this.chanom = 100;
+                break;
+            default:
+                break;
         }
-        else if(size == Size.M){
-            this.chanom = 75;
-        }
-        else if(size == Size.L){
-            this.chanom = 100;
-        }
+        return "pls select the size";
+    } 
+
+    @Override
+    public String toString() {
+        return "Cafe{" + "size=" + size + '}';
     }
     
     

@@ -11,9 +11,9 @@ public class Cafe {
     private int arrayTopping = 0;
     private int countTopping = 0;
     private Size size;
-    private int normalPrice;
+    private int chanom;
     
-    
+   
 
     public boolean addFlavour(String flavours, int price) {
         if (flavours != null || price > 0) {
@@ -39,6 +39,18 @@ public class Cafe {
             topping[countTopping++] = new Topping(toppings, price);
         }
         return false;
+    }
+
+    public int getSize(Size size) {
+        if(size == Size.S){
+            this.chanom = 50;
+        }
+        else if(size == Size.M){
+            this.chanom = 75;
+        }
+        else if(size == Size.L){
+            this.chanom = 100;
+        }
     }
     
     

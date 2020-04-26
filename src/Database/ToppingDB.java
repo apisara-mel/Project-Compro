@@ -1,5 +1,5 @@
 
-package chanomshope;
+package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,12 +9,13 @@ import java.sql.Statement;
 
 
 public class ToppingDB {
+
     public static void main(String[] args) {
         Topping();
         testSelectFromTopping();
     }
     
-        private static void Topping() {
+        public static void Topping() {
         try(Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/topping ", "apisara", "123");
             Statement stm = conn.createStatement();) {
             
@@ -27,18 +28,29 @@ public class ToppingDB {
         }
      }
 
-    private static void testSelectFromTopping() {
+    public String[] testSelectFromTopping() {
        try(Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/topping", "apisara", "123");
             Statement stm = conn.createStatement()) {
-            ResultSet top_rs = stm.executeQuery("SELECT * FROM topping");
-            while(top_rs.next()){
-                System.out.print(top_rs.getInt("id_topping") + "\t");
-                System.out.print(top_rs.getString("name_topping") + "\t");
-                System.out.println(top_rs.getInt("qauntity") + " g.");
+           int count = 0, i = 0;
+           
+            ResultSet toppingCount = stm.executeQuery("SELECT * FROM topping");
+            while(toppingCount.next()){
+                count++;
+            } 
+            String topping[] = new String[count];
+            
+            ResultSet toppingMenu = stm.executeQuery("SELECT * FROM topping");
+            while(toppingMenu.next()){
+                topping[i++] = toppingMenu.getString("");
             }
+//            return topping;
+//            System.out.print(toppingMenu.getInt("id_topping") + "\t");
+//            System.out.print(toppingMenu.getString("name_topping") + "\t");
+//            System.out.println(toppingMenu.getInt("qauntity") + " g.");
+            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }
+    
     
 }

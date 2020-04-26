@@ -1,5 +1,5 @@
 
-package chanomshope;
+package Database;
 
 
 public class FlavourDB {

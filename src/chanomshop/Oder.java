@@ -42,6 +42,7 @@ public class Oder {
     }
 
     public String getSize(Size size) {
+        
         if(null != size)switch (size) {
             case S:
                 this.chanom = 50;
@@ -62,6 +63,5 @@ public class Oder {
     public String toString() {
         return "Cafe{" + "size=" + size + '}';
     }
-    
-    
+
 }

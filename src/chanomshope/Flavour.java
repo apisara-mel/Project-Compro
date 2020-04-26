@@ -1,14 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package chanomshope;
 
-/**
- *
- * @author Apisara
- */
+
 public class Flavour {
-    
+    private String flavourName;
+    private int price;
+
+    public Flavour(String flavourName, int price) {
+        this.flavourName = flavourName;
+        this.price = price;
+    }
+
+    public String getFlavourName() {
+        return flavourName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer buff = new StringBuffer();
+        buff.append("Flavour : ");
+        buff.append(flavourName);
+        buff.append("\t" + price + " bath");
+        return buff.toString();
+    }
 }

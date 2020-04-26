@@ -2,6 +2,6 @@
 package chanomshope;
 
  
-public class Interface {
+public interface Interface {
     
 }

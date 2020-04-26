@@ -1,6 +1,7 @@
 
 package Database;
 
+import chanomshope.Topping;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,16 +12,17 @@ import java.sql.Statement;
 public class ToppingDB {
 
     public static void main(String[] args) {
-        Topping();
-        testSelectFromTopping();
+        Topping t1 = new Topping(10,"Bubble");
+        insertTopping(1001,t1,100);
     }
     
-        public static void Topping() {
+        public static void insertTopping(int id,Topping t1,int gramm) {
         try(Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/topping ", "apisara", "123");
             Statement stm = conn.createStatement();) {
             
-            int row = stm.executeUpdate("INSERT INTO topping VALUES(30015, 'Bubble', 500)");
-            System.out.println(row);
+            stm.executeUpdate("INSERT INTO topping VALUES("+id+", '"+t1.getToppingName()+"',"+gramm+")");
+            System.out.println("Sucessful");
+            
            
         
         } catch (SQLException ex) {

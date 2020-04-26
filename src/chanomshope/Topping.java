@@ -29,9 +29,9 @@ public class Topping {
         return buff.toString();
     }  
    
-    public static void main(String[] args) {
-        Topping t = new Topping(12, "bubble");
-        
-        System.out.println(t);
-    }
+//    public static void main(String[] args) {
+//        Topping t = new Topping(12, "bubble");
+//        
+//        System.out.println(t);
+//    }
 }

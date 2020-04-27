@@ -2,6 +2,6 @@
 package chanomshope;
 
 
-public class Size {
-    
+public enum Size {
+    S,M,L
 }

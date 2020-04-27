@@ -14,8 +14,6 @@ public class Customer extends Person {
         super(firstname,lastname);
         this.phonenum=phonenum;
     }
-
-     
     
     public long getPhonenum() {
         return phonenum;

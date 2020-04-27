@@ -5,10 +5,11 @@ package chanomshope;
 public class Customer extends Person {
     
     private long phonenum;
+    private  memberType MemberType;
     private enum memberType{
         general,gold,platinum
     }
-    private  memberType MemberType;
+    
 
     public Customer(String firstname,String lastname,long phonenum) {
         super(firstname,lastname);
@@ -22,6 +23,10 @@ public class Customer extends Person {
     public void setPhonenum(long phonenum) {
         this.phonenum = phonenum;
     }
+    
+//    public String getFirstName(){
+//        return super(firstname);
+//    }
 
     public memberType getMemberType() {
         return MemberType;
@@ -30,5 +35,6 @@ public class Customer extends Person {
     public void setMemberType(memberType MemberType) {
         this.MemberType = MemberType;
     }
+    
     
 }

@@ -22,7 +22,7 @@ public class Payment {
             }
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
 
         return -1;

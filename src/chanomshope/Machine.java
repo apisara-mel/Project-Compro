@@ -16,7 +16,7 @@ public class Machine implements Interface {
         
         do {
             System.out.println("[FLAVOUR]");
-            System.out.println("S" + "\t" + "M" + "\t" + "L");
+            System.out.println("Coco" + "\t" + "M" + "\t" + "L");
             System.out.print("Choose size [1-3] : ");
             
             f = sc.nextInt();
@@ -43,14 +43,14 @@ public class Machine implements Interface {
         }while(f < 1 || f > 3);
         
         for (int i = 0; i < flavour.length; i++) {
-            Flavour flavour = flavour[i];
+            Flavour[] fl = new Flavour[10]; 
             
         }
-        return flavour[3];
+        return flavour[2];
     }
 
     public Topping[] getTopping() {
-        return Topping;
+        return topping;
     }
     
 

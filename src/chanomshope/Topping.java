@@ -7,7 +7,7 @@ public class Topping {
     private String toppingName;
     private int count;
 
-    public Topping(int price, String toppingName) {
+    public Topping(String toppingName, int price) {
         this.price = price;
         this.toppingName = toppingName;
     }

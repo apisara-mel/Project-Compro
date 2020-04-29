@@ -6,9 +6,8 @@ public class Machine implements Interface {
 
     private Flavour[] flavour;
     private Topping[] topping;
-    private Customer[] customer;
+    //private Customer[] customer; ทำไมใส่[]
     private Size size;
-    private Payment payment;
     private int total;
 
     public void useMachine(){
@@ -126,7 +125,10 @@ public class Machine implements Interface {
         
         System.out.print("select money : ");
         int money = sc.nextInt();
-        System.out.println(payment.changeMoney(money));
+        Payment c1 = new Payment();
+
+        c1.changeMoney(money, total);
+        
         
         
     }

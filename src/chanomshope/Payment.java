@@ -11,16 +11,18 @@ public class Payment {
     public Payment() {
     }
 
-    public int changeMoney(int money) {
+    public int changeMoney(int money, int total) {
+        this.price = total;
         try {
             if (money > price) {
                 change = money - price;
-                return change;
+                
             } else if (money == price) {
                 change = 0;
-                return change;
+                
             }
-
+            System.out.println("change : " + change + " bath");
+            return change;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

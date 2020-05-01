@@ -5,8 +5,10 @@ import money.ChangeMoney;
 import java.util.Scanner;
 
 
-public class Payment extends Product {
+public class Payment{
     private int total;
+    private Product pd = new Product();
+
     
     public void addMoney(){
         int num;
@@ -19,7 +21,7 @@ public class Payment extends Product {
 
             num = sc.nextInt();
             System.out.println("------------------------------");
-            System.out.println("total : " + total + " bath");
+            System.out.println("total : "  + pd.getTotal() + " bath");
             System.out.println("------------------------------");
 
             if (num < 1 || num > 2) {

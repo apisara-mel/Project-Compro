@@ -11,6 +11,11 @@ public class Product {
     private Topping[] topping;
     private Size size;
     private int total;
+    
+
+    public int getTotal() {
+        return total;
+    }
 
     public void addFlavour(){
         int countArray = 0;

@@ -31,8 +31,11 @@ public class Machine implements Interface {
                 System.out.print("Choose size [1-3] : ");
                 product.addSize();
                 System.out.println("------------------------------");
+                System.out.println("Total : "  + product.getTotal() + " bath");
+                System.out.println("------------------------------");
                 System.out.println("[ PAYMENT ]");
                 System.out.print("Select Money : ");
+                money.addMoney();
                 
             } else if (num == 2) {
 

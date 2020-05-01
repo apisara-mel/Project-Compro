@@ -20,9 +20,9 @@ public class Payment{
 //            System.out.print("Choose Payment [1 or 2] : ");
 
             num = sc.nextInt();
-            System.out.println("------------------------------");
-            System.out.println("total : "  + pd.getTotal() + " bath");
-            System.out.println("------------------------------");
+//            System.out.println("------------------------------");
+//            System.out.println("Total : "  + pd.getTotal() + " bath");
+//            System.out.println("------------------------------");
 
             if (num < 1 || num > 2) {
                 System.out.println("!! Pls Select Number !!");
@@ -33,9 +33,8 @@ public class Payment{
                 System.out.println("------------------------------");
                 c1.changeMoney(money, total);
 
-            } else if (num == 2) {
-                System.out.println("");
-            }
+            } 
         } while (num < 1 || num > 3);
     }
+    //kuy kuy kuy kuy
 }

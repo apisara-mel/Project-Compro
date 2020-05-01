@@ -19,8 +19,8 @@ public class ChangeMoney {
                 change = 0;
                 
             }
-            System.out.println("change : " + change + " bath");
-            return change;
+//            System.out.println("change : " + change + " bath");
+            return this.change;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -28,30 +28,11 @@ public class ChangeMoney {
         return -1;
     }
 
-    public int getMoney() {
-        return money;
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
-    }
-
     public int getChange() {
         return change;
     }
 
-    public void setChange(int change) {
-        this.change = change;
-    }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    
     
   
 }

@@ -1,40 +1,23 @@
-
 package chanomshope;
 
 import money.ChangeMoney;
 import java.util.Scanner;
 
+public class Payment {
 
-public class Payment{
-    private int total;
-    private Product pd = new Product();
+    private ChangeMoney c1 = new ChangeMoney();
 
-    
-    public void addMoney(){
-        int num;
+    public void addMoney(int total) {
+
         Scanner sc = new Scanner(System.in);
-        do {
-//            System.out.println("[ PAYMENT ]");
-//            System.out.println("1. Cash");
-//            System.out.println("2. Transfer");
-//            System.out.print("Choose Payment [1 or 2] : ");
 
-            num = sc.nextInt();
-//            System.out.println("------------------------------");
-//            System.out.println("Total : "  + pd.getTotal() + " bath");
-//            System.out.println("------------------------------");
-
-            if (num < 1 || num > 2) {
-                System.out.println("!! Pls Select Number !!");
-            } else if (num == 1) {
-                System.out.print("Select Money : ");
-                int money = sc.nextInt();
-                ChangeMoney c1 = new ChangeMoney();
-                System.out.println("------------------------------");
-                c1.changeMoney(money, total);
-
-            } 
-        } while (num < 1 || num > 3);
+        int money = sc.nextInt();
+        c1.changeMoney(money, total);
     }
-    //kuy kuy kuy kuy
+
+    public int getC1() {
+        return c1.getChange();
+    }
+    
+    
 }

@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Machine implements Interface {
 
-    private final Payment money = new Payment();
-    private final Product product = new Product();
-    private final Customer cus = new Customer("jj", "kl", 224);
+    private Payment money = new Payment();
+    private Product product = new Product();
+   // private final Customer cus = new Customer("jj", "kl", 224);
 
     public void useMachine() {
         int num;
@@ -35,8 +35,9 @@ public class Machine implements Interface {
                 System.out.println("------------------------------");
                 System.out.println("[ PAYMENT ]");
                 System.out.print("Select Money : ");
-                money.addMoney();
-                
+                money.addMoney(product.getTotal());
+                System.out.println("------------------------------");
+                System.out.println("Change : " + money.getC1());
             } else if (num == 2) {
 
             }

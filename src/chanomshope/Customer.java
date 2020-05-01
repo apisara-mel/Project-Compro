@@ -1,17 +1,20 @@
 
 package chanomshope;
 
+import customer.Person;
+import java.util.Scanner;
+
 
 public class Customer extends Person {
-    
     private long phonenum;
     private  memberType MemberType;
     private enum memberType{
         general,gold,platinum
     }
-    
+    Scanner sc = new Scanner(System.in);
 
     public Customer(String firstname,String lastname,long phonenum) {
+        
         super(firstname,lastname);
         this.phonenum=phonenum;
     }

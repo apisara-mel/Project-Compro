@@ -1,59 +1,39 @@
+
 package chanomshope;
 
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
+import money.ChangeMoney;
+import java.util.Scanner;
 
-public class Payment {
 
-    private int money;
-    private int change;
-    private int price;
+public class Payment extends Product {
+    private int total;
+    
+    public void addMoney(){
+        int num;
+        Scanner sc = new Scanner(System.in);
+        do {
+//            System.out.println("[ PAYMENT ]");
+//            System.out.println("1. Cash");
+//            System.out.println("2. Transfer");
+//            System.out.print("Choose Payment [1 or 2] : ");
 
-    public Payment() {
-    }
+            num = sc.nextInt();
+            System.out.println("------------------------------");
+            System.out.println("total : " + total + " bath");
+            System.out.println("------------------------------");
 
-    public int changeMoney(int money, int total) {
-        this.price = total;
-        try {
-            if (money > price) {
-                change = money - price;
-                
-            } else if (money == price) {
-                change = 0;
-                
+            if (num < 1 || num > 2) {
+                System.out.println("!! Pls Select Number !!");
+            } else if (num == 1) {
+                System.out.print("Select Money : ");
+                int money = sc.nextInt();
+                ChangeMoney c1 = new ChangeMoney();
+                System.out.println("------------------------------");
+                c1.changeMoney(money, total);
+
+            } else if (num == 2) {
+                System.out.println("");
             }
-            System.out.println("change : " + change + " bath");
-            return change;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        return -1;
+        } while (num < 1 || num > 3);
     }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
-    }
-
-    public int getChange() {
-        return change;
-    }
-
-    public void setChange(int change) {
-        this.change = change;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    
-    
-  
 }

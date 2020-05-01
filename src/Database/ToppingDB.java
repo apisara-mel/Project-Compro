@@ -1,7 +1,7 @@
 
 package Database;
 
-import chanomshope.Topping;
+import chanom.Topping;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

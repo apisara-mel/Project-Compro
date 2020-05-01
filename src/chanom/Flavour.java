@@ -1,5 +1,5 @@
 
-package chanomshope;
+package chanom;
 
 
 public class Flavour {

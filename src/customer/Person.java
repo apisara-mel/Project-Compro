@@ -1,13 +1,7 @@
 
-package chanomshope;
+package customer;
 
 
-
-
-/**
- *
- * @author Apisara
- */
 public abstract class Person {
     
     private String firstname;

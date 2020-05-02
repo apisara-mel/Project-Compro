@@ -14,12 +14,12 @@ public class ChangeMoney {
         try {
             if (money > price) {
                 change = money - price;
-                
+
             } else if (money == price) {
                 change = 0;
-                
+            } else if (money < price) {
+                change = price - money;
             }
-//            System.out.println("change : " + change + " bath");
             return this.change;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -32,7 +32,4 @@ public class ChangeMoney {
         return change;
     }
 
-
-    
-  
 }

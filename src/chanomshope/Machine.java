@@ -6,7 +6,7 @@ public class Machine implements Interface {
 
     private Payment money = new Payment();
     private Product product = new Product();
-   // private final Customer cus = new Customer("jj", "kl", 224);
+    // private final Customer cus = new Customer("jj", "kl", 224);
 
     public void useMachine() {
         int num;
@@ -31,13 +31,25 @@ public class Machine implements Interface {
                 System.out.print("Choose size [1-3] : ");
                 product.addSize();
                 System.out.println("------------------------------");
-                System.out.println("Total : "  + product.getTotal() + " bath");
+                System.out.println("Total : " + product.getTotal() + " bath");
                 System.out.println("------------------------------");
                 System.out.println("[ PAYMENT ]");
                 System.out.print("Select Money : ");
-                money.addMoney(product.getTotal());
-                System.out.println("------------------------------");
-                System.out.println("Change : " + money.getC1());
+
+                do {
+                    money.addMoney(product.getTotal());
+                    System.out.println("------------------------------");
+                    
+                    if (product.getTotal() <= 0) {
+                        System.out.println("Change : " + money.getC1() + " bath");
+                    } 
+                    
+                    else if (product.getTotal() > 0) {
+                        System.out.println("Pls ass money : " + money.getC1() + " bath");
+                    }
+                    
+                } while (product.getTotal() > 0);
+
             } else if (num == 2) {
 
             }

@@ -114,7 +114,7 @@ public class Product {
                     case 3:
                         System.out.println(Size.L);
                         this.total = total + 30;
-                        break;
+                        break; 
 
                 }
             }

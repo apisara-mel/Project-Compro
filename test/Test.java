@@ -1,5 +1,5 @@
 
-package chanomshope;
+import chanomshope.Machine;
 
 
 public class Test {

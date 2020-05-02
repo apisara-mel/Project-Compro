@@ -38,6 +38,6 @@ public class Receipt {
         result.append("ITEM" + "\t");
         result.append("Total");
         //---------------------------------------------------------------------------------//
-        result.append()
+        //result.append()
     }  
 }

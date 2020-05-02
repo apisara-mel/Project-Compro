@@ -1,31 +1,29 @@
 package money;
 
+import java.util.Scanner;
+
 public class ChangeMoney {
 
-    private int money;
     private int change;
-    private int price;
+    private int total;
+    Scanner sc = new Scanner(System.in);
 
-    public ChangeMoney() {
-    }
+    public int changeMoney(int total) {
+        this.total = total;
+        int money = 0;
 
-    public int changeMoney(int money, int total) {
-        this.price = total;
-        try {
-            if (money > price) {
-                change = money - price;
+        do {
+            System.out.print("Pls add money : ");
+            int input = sc.nextInt();
+            
+            money += input;
 
-            } else if (money == price) {
-                change = 0;
-            } else if (money < price) {
-                change = price - money;
-            }
-            return this.change;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        } while (money < total);
 
-        return -1;
+        change = money - total;
+
+        return this.change;
+
     }
 
     public int getChange() {

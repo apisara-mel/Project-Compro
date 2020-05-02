@@ -8,15 +8,13 @@ import java.util.Scanner;
 public class Customer extends Person {
     private long phonenum;
     private  memberType MemberType;
-    private enum memberType{
-        general,gold,platinum
-    }
+    private enum memberType{general,gold,platinum}
     Scanner sc = new Scanner(System.in);
 
     public Customer(String firstname,String lastname,long phonenum) {
         
         super(firstname,lastname);
-        this.phonenum=phonenum;
+        this.phonenum = phonenum;
     }
     
     public long getPhonenum() {
@@ -26,10 +24,6 @@ public class Customer extends Person {
     public void setPhonenum(long phonenum) {
         this.phonenum = phonenum;
     }
-    
-//    public String getFirstName(){
-//        return super(firstname);
-//    }
 
     public memberType getMemberType() {
         return MemberType;

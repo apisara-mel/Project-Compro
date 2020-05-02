@@ -11,12 +11,30 @@ public class Product {
     private Topping[] topping;
     private Size size;
     private int total;
+    int amount;
     Scanner sc = new Scanner(System.in);
 
     public int getTotal() {
         return total;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public Flavour[] getFlavour() {
+        return flavour;
+    }
+
+    public Topping[] getTopping() {
+        return topping;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+    
+    
     public void addFlavour() {
         int countArray = 0;
         flavour = new Flavour[7];
@@ -122,7 +140,7 @@ public class Product {
     }
 
     public void addAmount() {
-        int amount;
+        
 
         amount = sc.nextInt();
 

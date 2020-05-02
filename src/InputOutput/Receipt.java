@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 
 public class Receipt {
     
-    private void writeReciept(Machine m) throws IOException{
+    public void writeReciept(Product pd) throws IOException{
         try{
             FileInputStream file = new FileInputStream("file/" + "Receipt_log.txt" );
         }catch(FileNotFoundException ex){
@@ -38,6 +38,12 @@ public class Receipt {
         result.append("ITEM" + "\t");
         result.append("Total");
         //---------------------------------------------------------------------------------//
-        //result.append()
+        result.append(pd.getAmount());
+        result.append(pd.getFlavour());
+        result.append(pd.getTopping());
+        result.append(pd.getSize());
+        result.append(pd.getTotal() + "\n");
+        //---------------------------------------------------------------------------------//
+        result.append("Good Luck");
     }  
 }

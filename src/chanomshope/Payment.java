@@ -7,10 +7,9 @@ public class Payment {
 
     private ChangeMoney c1 = new ChangeMoney();
 
-    public void addMoney(int total) {
-        Scanner sc = new Scanner(System.in);
-        int money = sc.nextInt();
-        c1.changeMoney(money, total);
+    public int addMoney(int total) {
+        return c1.changeMoney(total);
+        
     }
 
     public int getC1() {

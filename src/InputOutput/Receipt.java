@@ -1,6 +1,7 @@
 
 package InputOutput;
 
+import chanomshope.Machine;
 import chanomshope.Payment;
 import chanomshope.Product;
 import java.io.BufferedWriter;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 
 public class Receipt {
     
-    private void writeReciept(Product pd, Payment pm) throws IOException{
+    private void writeReciept(Machine m) throws IOException{
         try{
             FileInputStream file = new FileInputStream("file/" + "Receipt_log.txt" );
         }catch(FileNotFoundException ex){
@@ -29,8 +30,14 @@ public class Receipt {
         StringBuilder result = new StringBuilder();
         LocalDateTime time = LocalDateTime.now();
         
-        result.append("Date : " + time.toLocalDate() + time.toLocalTime());
-        result.append("")
-        
-    }
+        result.append("Chanom Chanom" + "\n");
+        result.append("Date : " + time.toLocalDate() + time.toLocalTime() + "\n");
+        result.append("------------------------------" + "\n");
+        //---------------------------------------------------------------------------------//
+        result.append("QTY");
+        result.append("ITEM" + "\t");
+        result.append("Total");
+        //---------------------------------------------------------------------------------//
+        result.append()
+    }  
 }

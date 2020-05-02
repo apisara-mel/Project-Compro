@@ -11,13 +11,13 @@ public class Product {
     private Topping[] topping;
     private Size size;
     private int total;
-    
+    Scanner sc = new Scanner(System.in);
 
     public int getTotal() {
         return total;
     }
 
-    public void addFlavour(){
+    public void addFlavour() {
         int countArray = 0;
         flavour = new Flavour[7];
 
@@ -51,10 +51,10 @@ public class Product {
 
         System.out.println("You Choose : " + flavour[input - 1].getFlavourName());
         this.total += flavour[input - 1].getPrice();
-        //System.out.println("------------------------------");
+
     }
-    
-    public void addTopping(){
+
+    public void addTopping() {
         int topArray = 0;
         Scanner sc = new Scanner(System.in);
         topping = new Topping[5];
@@ -68,8 +68,6 @@ public class Product {
         for (int i = 0; i < topping.length; i++) {
             topArray++;
         }
-
-        //System.out.println("[ TOPPING ]");
 
         for (int i = 0; i < topping.length; i++) {
             System.out.println((i + 1 + " : ") + topping[i].getToppingName());
@@ -88,17 +86,14 @@ public class Product {
 
         System.out.println("You Choose : " + topping[selecte - 1].getToppingName());
         this.total += topping[selecte - 1].getPrice();
-       // System.out.println("------------------------------");
+        // System.out.println("------------------------------");
     }
-    
-    public void addSize(){
+
+    public void addSize() {
         int sml;
         Scanner sc = new Scanner(System.in);
-        
+
         do {
-            //System.out.println("[SIZE]");
-            //System.out.println("S" + "\t" + "M" + "\t" + "L");
-            //System.out.print("Choose size [1-3] : ");
 
             sml = sc.nextInt();
 
@@ -124,7 +119,15 @@ public class Product {
                 }
             }
         } while (sml < 1 || sml > 3);
-        //System.out.println("------------------------------");
+    }
 
+    public void addAmount() {
+        int amount;
+
+        amount = sc.nextInt();
+
+        if (amount > 0) {
+            this.total = total * amount;
+        }
     }
 }

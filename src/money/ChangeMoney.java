@@ -7,20 +7,26 @@ public class ChangeMoney {
     private int change;
     private int total;
     Scanner sc = new Scanner(System.in);
+    private int momey = 0;
 
     public int changeMoney(int total) {
         this.total = total;
-        int money = 0;
 
         do {
-            System.out.print("Pls add money : ");
+
             int input = sc.nextInt();
-            
-            money += input;
+            this.momey += input;
+            if (this.momey < total) {
+                System.out.println("------------------------------");
+                System.out.println("[ remaining total paid : " + (total - this.momey) + " ]");
+                System.out.println("Not Enough Money To Buy ");
+                System.out.print("Please Insert Cash More : ");
 
-        } while (money < total);
+            }
 
-        change = money - total;
+        } while (this.momey < total);
+
+        change = this.momey - total;
 
         return this.change;
 
@@ -29,5 +35,10 @@ public class ChangeMoney {
     public int getChange() {
         return change;
     }
+
+    public int getMomey() {
+        return momey;
+    }
+
 
 }

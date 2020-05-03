@@ -1,20 +1,31 @@
 package chanomshope;
 
+import InputOutput.Receipt;
+import java.io.IOException;
 import money.ChangeMoney;
-import java.util.Scanner;
 
 public class Payment {
 
-    private ChangeMoney c1 = new ChangeMoney();
-
+    private ChangeMoney c = new ChangeMoney();
+    private Receipt receipt = new Receipt();
+    
+    
     public int addMoney(int total) {
-        return c1.changeMoney(total);
+        return c.changeMoney(total);
         
     }
 
-    public int getC1() {
-        return c1.getChange();
+    public int getChange() {
+        return c.getChange();
     }
     
+    public int getTotal(){
+        return c.getMomey();
+    }
+
+    public void getReceipt(Product pd, Customer ct, int change, Payment pm) throws IOException {
+        receipt.writeReciept(pd, ct, change, pm);
+    }
+
     
 }

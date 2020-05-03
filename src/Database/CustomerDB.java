@@ -2,6 +2,6 @@
 package Database;
 
 
-public class FlavourDB {
+public class CustomerDB {
     
 }

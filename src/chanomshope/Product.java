@@ -12,8 +12,20 @@ public class Product {
     private Size size;
     private int total;
     int amount;
+    private Flavour selectFlavour;
+    private Topping selectTopping;
+    
     Scanner sc = new Scanner(System.in);
 
+    public String getNameSelectFlavour() {
+        return selectFlavour.getFlavourName();
+    }
+
+    public String getNameSelectTopping() {
+        return selectTopping.getToppingName();
+    }
+    
+    
     public int getTotal() {
         return total;
     }
@@ -33,7 +45,7 @@ public class Product {
     public Size getSize() {
         return size;
     }
-    
+   
     
     public void addFlavour() {
         int countArray = 0;
@@ -69,7 +81,7 @@ public class Product {
 
         System.out.println("You Choose : " + flavour[input - 1].getFlavourName());
         this.total += flavour[input - 1].getPrice();
-
+        selectFlavour = flavour[input - 1];
     }
 
     public void addTopping() {
@@ -104,6 +116,7 @@ public class Product {
 
         System.out.println("You Choose : " + topping[selecte - 1].getToppingName());
         this.total += topping[selecte - 1].getPrice();
+        selectTopping = topping[selecte - 1];
         // System.out.println("------------------------------");
     }
 
@@ -124,14 +137,17 @@ public class Product {
                     case 1:
                         System.out.println(Size.S);
                         this.total = total + 15;
+                        size = Size.S;
                         break;
                     case 2:
                         System.out.println(Size.M);
                         this.total = total + 25;
+                        size = Size.M;
                         break;
                     case 3:
                         System.out.println(Size.L);
                         this.total = total + 30;
+                        size = Size.L;
                         break; 
 
                 }
@@ -148,4 +164,6 @@ public class Product {
             this.total = total * amount;
         }
     }
+    
+    
 }

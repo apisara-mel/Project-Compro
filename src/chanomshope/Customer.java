@@ -2,19 +2,16 @@
 package chanomshope;
 
 import customer.Person;
-import java.util.Scanner;
-
 
 public class Customer extends Person {
     private long phonenum;
-    private  memberType MemberType;
-    private enum memberType{general,gold,platinum}
-    Scanner sc = new Scanner(System.in);
-
+    private  Type type;
+    private enum Type{general,member}
+   
     public Customer(String firstname,String lastname, long phone) {
         
-        super(firstname,lastname);
-        this.phonenum = sc.nextLong();
+        super(firstname,lastname); 
+        this.phonenum = phone;
     }
     
     public long getPhonenum() {
@@ -25,12 +22,10 @@ public class Customer extends Person {
         this.phonenum = phonenum;
     }
 
-    public memberType getMemberType() {
-        return MemberType;
+    public Type getType() {
+        return type;
     }
-
-    public void setMemberType(memberType MemberType) {
-        this.MemberType = MemberType;
-    }
+    
+    
 
 }

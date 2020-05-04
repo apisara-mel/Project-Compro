@@ -21,19 +21,19 @@ public class Receipt {
     
     public void writeReciept(Product pd[], Customer ct,int change, Payment pm) throws IOException{
         try{
-            FileInputStream file = new FileInputStream("file/" + ct.getFirstname() + ct.getLastname() + ct.getPhonenum()+"Receipt_log.txt" );
+            FileInputStream file = new FileInputStream("file/" + ct.getFirstname() + ct.getLastname() +"Receipt_log.txt" );
         }catch(FileNotFoundException ex){
-            FileWriter fw   = new FileWriter("file/" + ct.getFirstname() + ct.getLastname() + ct.getPhonenum()+ "Receipt_log.txt");
+            FileWriter fw = new FileWriter("file/" + ct.getFirstname() + ct.getLastname() + "Receipt_log.txt");
         }
         
-        Path file = Paths.get("file/" + "Receipt_log"); 
+        Path file = Paths.get("file/" + ct.getFirstname() + ct.getLastname() + "Receipt_log"); 
         BufferedWriter writer = Files.newBufferedWriter(file, StandardCharsets.UTF_8);
         StringBuilder result = new StringBuilder();
         LocalDateTime time = LocalDateTime.now();
         
         result.append("\t\t\t" + "Chanom Shope" + "\n");
         result.append("Date : " + time.toLocalDate() + "\t\t\t\t\t" + time.toLocalTime() + "\n");
-        result.append(ct.getFirstname() + "\t" + ct.getPhonenum() + "\n");
+        result.append(ct.getFirstname() + "\t" +"0"+ ct.getPhonenum() + "\n");
         result.append("--------------------------------------------------------------------" + "\n");
         //---------------------------------------------------------------------------------//
         result.append("ITEM" + "\t\t\t\t\t");

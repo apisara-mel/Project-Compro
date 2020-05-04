@@ -14,8 +14,8 @@ public class Machine implements Interface {
     String name = null;
     String last = null;
     long phone;
-    
-    public Machine(){
+
+    public Machine() {
         product = new Product[10];
     }
 
@@ -23,17 +23,56 @@ public class Machine implements Interface {
     public void useMachine() throws IOException {
         Scanner sc = new Scanner(System.in);
         Scanner ss = new Scanner(System.in);
+        int select;
+        int num = 0;
+
+        do {
+            System.out.println("[ Type Customer ]");
+            System.out.println("1.General" + "\t" + "2.Member");
+            System.out.print("Select : ");
+            select = sc.nextInt();
+
+            if (select >= 3 || select <= 0) {
+                System.out.println("!! Pls select 1 or 2 !!");
+                System.out.println("------------------------------");
+            } else if (select == 1) {
+                do {
+                    switch (select) {
+                        case 1:
+                            System.out.println("------------------------------");
+                            System.out.println("Do you want to register?");
+                            System.out.println("[ YES 1 ]" + "\t" + "[ NO 2 ]");
+                            System.out.print("Select : ");
+                            num = sc.nextInt();
+
+                            if (num == 1) {
+                                applyMember();
+                            } else if (num <= 0 || num >= 3) {
+                                System.out.println("!! Pls select 1 or 2 !!");
+                            }
+                            break;
+                    }
+                } while (num <= 0 || num >= 3);
+
+            } else if (select == 2) {
+                if (productCount == 0) {
+                    System.out.print("Fristname : ");
+                    name = ss.nextLine();
+                    System.out.print("Lastname : ");
+                    last = ss.nextLine();
+                    System.out.print("Phone Number : ");
+                    this.phone = sc.nextLong();
+                    makeProduct();
+                }
+
+            }
+
+        } while (select >= 3 || select <= 0);
+    }
+
+    private void makeProduct() throws IOException {
         Product product = new Product();
 
-        if(productCount == 0){
-           System.out.print("Name : ");
-        name = ss.nextLine();
-        System.out.print("Lastname : ");
-        last = ss.nextLine();
-        System.out.print("Phone Number : ");
-        this.phone = sc.nextInt();
-        }
-        
         System.out.println("------------------------------");
         System.out.println("[ FLAVOUR ]");
         product.addFlavour();
@@ -50,7 +89,20 @@ public class Machine implements Interface {
         product.addAmount();
         System.out.println("------------------------------");
         this.product[productCount++] = product;
-        wantAddMenu(); 
+        wantAddMenu();
+    }
+
+    private void applyMember() {
+        Scanner sc = new Scanner(System.in);
+        Scanner ss = new Scanner(System.in);
+
+        System.out.println("------------------------------");
+        System.out.print("Fristname : ");
+        name = sc.nextLine();
+        System.out.print("Lastname : ");
+        last = sc.nextLine();
+        System.out.println("Phone Number : ");
+        phone = ss.nextLong();
 
     }
 
@@ -59,7 +111,7 @@ public class Machine implements Interface {
         int num;
 
         System.out.println("Want to add menu?");
-        System.out.println("[YES 1]" + "\t" + "[NO 2]");
+        System.out.println("[ YES 1 ]" + "\t" + "[ NO 2 ]");
         System.out.print("Select : ");
         num = sc.nextInt();
         do {
@@ -76,13 +128,14 @@ public class Machine implements Interface {
         } while (num <= 0 || num >= 3);
     }
 
+    @Override
     public void caculate() throws IOException {
-        Customer cus = new Customer(name, last, phone+'L');
-        
+        Customer cus = new Customer(name, last, phone + 'L');
+
         for (int i = 0; i < product.length; i++) {
-            if(product[i] != null){
+            if (product[i] != null) {
                 total += product[i].getTotal();
-            }      
+            }
         }
 
         System.out.println("------------------------------");

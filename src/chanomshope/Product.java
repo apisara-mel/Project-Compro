@@ -9,49 +9,16 @@ public class Product {
 
     private Flavour[] flavour;
     private Topping[] topping;
-    private int[] item;
-    private Size size;
-    private int total;
-    int amount;
+    private int flavorCount;
+    private int toppingCount;
     private Flavour selectFlavour;
     private Topping selectTopping;
+    private Size size;
+    private int total;
+    private int amount;
     Scanner sc = new Scanner(System.in);
 
-    public String getNameSelectFlavour() {
-        return selectFlavour.getFlavourName();
-    }
-    
-    public String getNameSelectTopping() {
-        return selectTopping.getToppingName();
-    }
-    
-    
-    public int getTotal() {
-        return total;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public Flavour[] getFlavour() {
-        return flavour;
-    }
-
-    public Topping[] getTopping() {
-        return topping;
-    }
-
-    public Size getSize() {
-        return size;
-    }
-
-    public int[] getItem() {
-        return item;
-    }
-    
-    public void addFlavour() {
-        int countArray = 0;
+    public Product(){
         flavour = new Flavour[7];
 
         flavour[0] = new Flavour("Milk Tea", 75);
@@ -61,35 +28,10 @@ public class Product {
         flavour[4] = new Flavour("Matcha Mouse", 100);
         flavour[5] = new Flavour("Honey Lime Mousse", 110);
         flavour[6] = new Flavour("Caramel Coffee", 125);
-
         for (int i = 0; i < flavour.length; i++) {
-            countArray++;
+            flavorCount++;
         }
-
-        for (int i = 0; i < flavour.length; i++) {
-            System.out.println((i + 1 + " : ") + flavour[i].getFlavourName());
-        }
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("You Choose Flavour [1-" + countArray + "] : ");
-        int input = sc.nextInt();
-
-        if (input > countArray || input < 1) {
-            do {
-                System.out.println("! Please Selecte Number Agian !");
-                System.out.print("You Choose Flavour [1-" + countArray + "] : ");
-                input = sc.nextInt();
-            } while (input > countArray || input < 1);
-        }
-
-        System.out.println("You Choose : " + flavour[input - 1].getFlavourName());
-        this.total += flavour[input - 1].getPrice();
-        selectFlavour = flavour[input - 1];
-    }
-
-    public void addTopping() {
-        int topArray = 0;
-        Scanner sc = new Scanner(System.in);
+        
         topping = new Topping[5];
 
         topping[0] = new Topping("Bubble", 20);
@@ -99,28 +41,54 @@ public class Product {
         topping[4] = new Topping("Mousse", 50);
 
         for (int i = 0; i < topping.length; i++) {
-            topArray++;
+            toppingCount++;
         }
 
+    }
+    
+    public void addFlavour() {
+        for (int i = 0; i < flavour.length; i++) {
+            System.out.println((i + 1 + " : ") + flavour[i].getFlavourName());
+        }
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("You Choose Flavour [1-" + flavorCount + "] : ");
+        int input = sc.nextInt();
+
+        if (input > flavorCount || input < 1) {
+            do {
+                System.out.println("! Please Selecte Number Agian !");
+                System.out.print("You Choose Flavour [1-" + flavorCount + "] : ");
+                input = sc.nextInt();
+            } while (input > flavorCount || input < 1);
+        }
+
+        System.out.println("You Choose : " + flavour[input - 1].getFlavourName());
+        this.total += flavour[input - 1].getPrice();
+        selectFlavour = flavour[input - 1];
+    }
+
+    public void addTopping() {
+        Scanner sc = new Scanner(System.in);
+        
         for (int i = 0; i < topping.length; i++) {
             System.out.println((i + 1 + " : ") + topping[i].getToppingName());
         }
 
-        System.out.print("You Choose Topping [1-" + topArray + "] : ");
+        System.out.print("You Choose Topping [1-" + toppingCount + "] : ");
         int selecte = sc.nextInt();
 
-        if (selecte > topArray || selecte < 1) {
+        if (selecte > toppingCount || selecte < 1) {
             do {
                 System.out.println("! Please Selecte Number Agian !");
-                System.out.print("You Choose Flavour [1-" + topArray + "] : ");
+                System.out.print("You Choose Flavour [1-" + toppingCount + "] : ");
                 selecte = sc.nextInt();
-            } while (selecte > topArray || selecte < 1);
+            } while (selecte > toppingCount || selecte < 1);
         }
 
         System.out.println("You Choose : " + topping[selecte - 1].getToppingName());
         this.total += topping[selecte - 1].getPrice();
         selectTopping = topping[selecte - 1];
-        // System.out.println("------------------------------");
     }
 
     public void addSize() {
@@ -165,19 +133,32 @@ public class Product {
         }
     }
     
-    public void arrayItem(){
-        int itemArray = 0;
-        
-        for (int i = 0; i < item.length; i++) {
-            itemArray++;
-        }
-        
-        for(int i = 0; i< item.length; i++){
-            item = flavour.getFlavourName()+ topping.getToppingName() + size;
-        }
-        
-        
+    public String getNameSelectFlavour() {
+        return selectFlavour.getFlavourName();
+    }
+    
+    public String getNameSelectTopping() {
+        return selectTopping.getToppingName();
     }
     
     
+    public int getTotal() {
+        return total;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+//    public Flavour[] getFlavour() {
+//        return flavour;
+//    }
+//
+//    public Topping[] getTopping() {
+//        return topping;
+//    }
+
+    public Size getSize() {
+        return size;
+    }
 }

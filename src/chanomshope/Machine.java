@@ -7,23 +7,32 @@ import java.util.Scanner;
 public class Machine implements Interface {
 
     private Payment payment = new Payment();
-    private Product product = new Product();
     private Receipt receipt = new Receipt();
-    private int item;
+    private Product product[];
+    private int productCount;
+    private int total;
     String name = null;
     String last = null;
     long phone = 0;
+    
+    public Machine(){
+        product = new Product[10];
+    }
 
     public void useMachine() throws IOException {
         Scanner sc = new Scanner(System.in);
         Scanner ss = new Scanner(System.in);
+        Product product = new Product();
 
-        System.out.print("Name : ");
+        if(productCount == 0){
+           System.out.print("Name : ");
         name = ss.nextLine();
         System.out.print("Lastname : ");
         last = ss.nextLine();
         System.out.print("Phone Number : ");
         phone = sc.nextLong();
+        }
+        
         System.out.println("------------------------------");
         System.out.println("[ FLAVOUR ]");
         product.addFlavour();
@@ -39,6 +48,8 @@ public class Machine implements Interface {
         System.out.print("Amount : ");
         product.addAmount();
         System.out.println("------------------------------");
+        this.product[productCount++] = product;
+        wantAddMenu(); 
 
     }
 
@@ -66,13 +77,19 @@ public class Machine implements Interface {
 
     public void caculate() throws IOException {
         Customer cus = new Customer(name, last, phone);
+        
+        for (int i = 0; i < product.length; i++) {
+            if(product[i] != null){
+                total += product[i].getTotal();
+            }      
+        }
 
         System.out.println("------------------------------");
-        System.out.println("Total : " + product.getTotal() + " bath");
+        System.out.println("Total : " + total + " bath");
         System.out.println("------------------------------");
         System.out.println("[ PAYMENT ]");
         System.out.print("Select Money : ");
-        int change = payment.addMoney(product.getTotal());
+        int change = payment.addMoney(total);
         System.out.println("------------------------------");
         if (change > 0) {
             System.out.println("Change : " + change + " bath");

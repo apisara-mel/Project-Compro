@@ -19,11 +19,11 @@ import java.time.LocalDateTime;
 
 public class Receipt {
     
-    public void writeReciept(Product pd, Customer ct,int change, Payment pm) throws IOException{
+    public void writeReciept(Product pd[], Customer ct,int change, Payment pm) throws IOException{
         try{
             FileInputStream file = new FileInputStream("file/" + ct.getFirstname() + ct.getLastname() + ct.getPhonenum()+"Receipt_log.txt" );
         }catch(FileNotFoundException ex){
-            FileWriter fw = new FileWriter("file/" + ct.getFirstname() + ct.getLastname() + ct.getPhonenum()+ "Receipt_log.txt");
+            FileWriter fw   = new FileWriter("file/" + ct.getFirstname() + ct.getLastname() + ct.getPhonenum()+ "Receipt_log.txt");
         }
         
         Path file = Paths.get("file/" + "Receipt_log"); 
@@ -39,11 +39,15 @@ public class Receipt {
         result.append("QTY" + "\t\t");
         result.append("Total" + "\n\n");
         //---------------------------------------------------------------------------------//
-        result.append(pd.getNameSelectFlavour() +"\t\t\t\t");
-        result.append(pd.getAmount() + "\t\t");
-        result.append(pd.getTotal() + "\n");
-        result.append(pd.getNameSelectTopping()+"\n");
-        result.append("Size    : " + pd.getSize()+"\n");
+        for (int i = 0; i < pd.length ; i++) {
+            if(pd[i]!=null){
+                result.append(pd[i].getNameSelectFlavour() +"\t\t\t\t\t");
+                result.append(pd[i].getAmount() + "\t\t");
+                result.append(pd[i].getTotal() + "\n");
+                result.append(pd[i].getNameSelectTopping()+"\n");
+                result.append("Size    : " + pd[i].getSize()+"\n");
+            }    
+        }
         //---------------------------------------------------------------------------------//
         result.append("--------------------------------------------------------------------" + "\n");
         result.append("Cash" + "\t\t\t\t\t\t\t");

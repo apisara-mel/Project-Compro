@@ -9,15 +9,14 @@ public class Machine implements Interface {
     private Payment payment = new Payment();
     private Product product = new Product();
     private Receipt receipt = new Receipt();
-    Scanner sc = new Scanner(System.in);
-    Scanner ss = new Scanner(System.in);
+    private int item;
+    String name = null;
+    String last = null;
+    long phone = 0;
 
     public void useMachine() throws IOException {
-        int num;
-        String name = null;
-        String last = null;
-        long phone = 0;
-        Customer cus = new Customer(name, last, phone);
+        Scanner sc = new Scanner(System.in);
+        Scanner ss = new Scanner(System.in);
 
         System.out.print("Name : ");
         name = ss.nextLine();
@@ -40,11 +39,34 @@ public class Machine implements Interface {
         System.out.print("Amount : ");
         product.addAmount();
         System.out.println("------------------------------");
-//        System.out.println("Want to add menu?");
-//        System.out.println("[YES 1]" + "\t" +"[NO 2]");
-//        System.out.print("Select : ");
-//        num = sc.nextInt();
-//        
+
+    }
+
+    public void wantAddMenu() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int num;
+
+        System.out.println("Want to add menu?");
+        System.out.println("[YES 1]" + "\t" + "[NO 2]");
+        System.out.print("Select : ");
+        num = sc.nextInt();
+        do {
+            switch (num) {
+                case 1:
+                    useMachine();
+                    break;
+                case 2:
+                    break;
+            }
+            if (num <= 0 || num >= 3) {
+                System.out.println("Pls select 1 or 2 : ");
+            }
+        } while (num <= 0 || num >= 3);
+    }
+
+    public void caculate() throws IOException {
+        Customer cus = new Customer(name, last, phone);
+
         System.out.println("------------------------------");
         System.out.println("Total : " + product.getTotal() + " bath");
         System.out.println("------------------------------");

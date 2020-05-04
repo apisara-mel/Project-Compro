@@ -1,4 +1,4 @@
-package chanomshope;
+ package chanomshope;
 
 import chanom.Flavour;
 import chanom.Topping;
@@ -9,18 +9,18 @@ public class Product {
 
     private Flavour[] flavour;
     private Topping[] topping;
+    private int[] item;
     private Size size;
     private int total;
     int amount;
     private Flavour selectFlavour;
     private Topping selectTopping;
-    
     Scanner sc = new Scanner(System.in);
 
     public String getNameSelectFlavour() {
         return selectFlavour.getFlavourName();
     }
-
+    
     public String getNameSelectTopping() {
         return selectTopping.getToppingName();
     }
@@ -45,7 +45,10 @@ public class Product {
     public Size getSize() {
         return size;
     }
-   
+
+    public int[] getItem() {
+        return item;
+    }
     
     public void addFlavour() {
         int countArray = 0;
@@ -122,8 +125,7 @@ public class Product {
 
     public void addSize() {
         int sml;
-        Scanner sc = new Scanner(System.in);
-
+        
         do {
 
             sml = sc.nextInt();
@@ -156,13 +158,25 @@ public class Product {
     }
 
     public void addAmount() {
-        
-
         amount = sc.nextInt();
 
         if (amount > 0) {
             this.total = total * amount;
         }
+    }
+    
+    public void arrayItem(){
+        int itemArray = 0;
+        
+        for (int i = 0; i < item.length; i++) {
+            itemArray++;
+        }
+        
+        for(int i = 0; i< item.length; i++){
+            item = flavour.getFlavourName()+ topping.getToppingName() + size;
+        }
+        
+        
     }
     
     

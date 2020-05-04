@@ -11,7 +11,7 @@ public class Customer extends Person {
     private enum memberType{general,gold,platinum}
     Scanner sc = new Scanner(System.in);
 
-    public Customer(String firstname,String lastname, long phune) {
+    public Customer(String firstname,String lastname, long phone) {
         
         super(firstname,lastname);
         this.phonenum = phonenum;

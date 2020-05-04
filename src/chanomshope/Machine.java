@@ -13,12 +13,13 @@ public class Machine implements Interface {
     private int total;
     String name = null;
     String last = null;
-    long phone = 0;
+    long phone;
     
     public Machine(){
         product = new Product[10];
     }
 
+    @Override
     public void useMachine() throws IOException {
         Scanner sc = new Scanner(System.in);
         Scanner ss = new Scanner(System.in);
@@ -30,7 +31,7 @@ public class Machine implements Interface {
         System.out.print("Lastname : ");
         last = ss.nextLine();
         System.out.print("Phone Number : ");
-        phone = sc.nextLong();
+        this.phone = sc.nextInt();
         }
         
         System.out.println("------------------------------");
@@ -76,7 +77,7 @@ public class Machine implements Interface {
     }
 
     public void caculate() throws IOException {
-        Customer cus = new Customer(name, last, phone);
+        Customer cus = new Customer(name, last, phone+'L');
         
         for (int i = 0; i < product.length; i++) {
             if(product[i] != null){

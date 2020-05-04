@@ -33,6 +33,7 @@ public class Receipt {
         
         result.append("\t\t\t" + "Chanom Shope" + "\n");
         result.append("Date : " + time.toLocalDate() + "\t\t\t\t\t" + time.toLocalTime() + "\n");
+        result.append(ct.getFirstname() + "\t" + ct.getPhonenum() + "\n");
         result.append("--------------------------------------------------------------------" + "\n");
         //---------------------------------------------------------------------------------//
         result.append("ITEM" + "\t\t\t\t\t");
@@ -41,7 +42,7 @@ public class Receipt {
         //---------------------------------------------------------------------------------//
         for (int i = 0; i < pd.length ; i++) {
             if(pd[i]!=null){
-                result.append(pd[i].getNameSelectFlavour() +"\t\t\t\t\t");
+                result.append(pd[i].getNameSelectFlavour() +"\t\t\t\t");
                 result.append(pd[i].getAmount() + "\t\t");
                 result.append(pd[i].getTotal() + "\n");
                 result.append(pd[i].getNameSelectTopping()+"\n");

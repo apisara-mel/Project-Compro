@@ -14,7 +14,7 @@ public class Customer extends Person {
     public Customer(String firstname,String lastname, long phone) {
         
         super(firstname,lastname);
-        this.phonenum = phonenum;
+        this.phonenum = sc.nextLong();
     }
     
     public long getPhonenum() {

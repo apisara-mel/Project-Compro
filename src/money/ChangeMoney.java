@@ -21,9 +21,7 @@ public class ChangeMoney {
                 System.out.println("[ remaining total paid : " + (total - this.momey) + " ]");
                 System.out.println("Not Enough Money To Buy ");
                 System.out.print("Please Insert Cash More : ");
-
             }
-
         } while (this.momey < total);
 
         change = this.momey - total;

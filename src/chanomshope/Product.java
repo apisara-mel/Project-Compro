@@ -150,14 +150,6 @@ public class Product {
         return amount;
     }
 
-//    public Flavour[] getFlavour() {
-//        return flavour;
-//    }
-//
-//    public Topping[] getTopping() {
-//        return topping;
-//    }
-
     public Size getSize() {
         return size;
     }

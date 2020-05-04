@@ -8,11 +8,9 @@ public class Payment {
 
     private ChangeMoney c = new ChangeMoney();
     private Receipt receipt = new Receipt();
-    
-    
+      
     public int addMoney(int total) {
         return c.changeMoney(total);
-        
     }
 
     public int getChange() {

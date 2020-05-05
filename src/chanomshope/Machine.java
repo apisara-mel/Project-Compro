@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+// Jiraphat Phulprapha , Panisara Kongjaidee , Apisara Ngakor
 public class Machine implements Interface {
 
     private Payment payment = new Payment();
@@ -24,7 +24,7 @@ public class Machine implements Interface {
         this.cus = new Customer(name, last, phone);
         product = new Product[10];
     }
-
+//Panisara Kongjaidee
     @Override
     public void useMachine() throws IOException {
         Scanner sc = new Scanner(System.in);
@@ -87,8 +87,8 @@ public class Machine implements Interface {
             }
 
         } while (select >= 3 || select <= 0);
-    }
-
+    } 
+//Apisara Ngakor
     private void makeProduct() throws IOException {
         Product product = new Product();
 
@@ -110,7 +110,7 @@ public class Machine implements Interface {
         this.product[productCount++] = product;
         whatDoYouWant();
     }
-
+//Pinisara Kongjaidee
     @Override
     public void applyMember() {
         Scanner sc = new Scanner(System.in);
@@ -130,7 +130,7 @@ public class Machine implements Interface {
         }
 
     }
-
+//Apisara Ngakor
     public void whatDoYouWant() throws IOException {
         Scanner sc = new Scanner(System.in);
         int num;
@@ -161,7 +161,7 @@ public class Machine implements Interface {
             }
         } while (num < 1 || num > 4);
     }
-
+//Apisara Ngakor
     @Override
     public void deleteMenu() {
         Scanner sc = new Scanner(System.in);
@@ -199,10 +199,10 @@ public class Machine implements Interface {
         }
 
     }
-
+//Jiraphat Phulprapha
     @Override
     public void caculate() throws IOException {
-        cus = new Customer(name, last, phone + 'L');
+        cus = new Customer(name, last, phone);
 
         for (int i = 0; i < product.length; i++) {
             if (product[i] != null) {

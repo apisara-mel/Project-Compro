@@ -52,14 +52,14 @@ public class Machine implements Interface {
                             num = sc.nextInt();
 
                             if (num == 1) {
+                                this.isMember = true;
                                 applyMember();
                             } else if (num <= 0 || num >= 3) {
                                 System.out.println("!! Pls select 1 or 2 !!");
                             } else if (num == 2) {
                                 if (productCount == 0) {
-
-                                    this.isMember = true;
-                                    System.out.print("Fristname : ");
+                                    System.out.println("------------------------------");
+                                    System.out.print("Firstname : ");
                                     name = ss.nextLine();
                                     System.out.print("Lastname : ");
                                     last = ss.nextLine();
@@ -75,7 +75,7 @@ public class Machine implements Interface {
 
                 this.isMember = true;
                 if (productCount == 0) {
-                    System.out.print("Fristname : ");
+                    System.out.print("Firstname : ");
                     name = ss.nextLine();
                     System.out.print("Lastname : ");
                     last = ss.nextLine();
@@ -117,7 +117,7 @@ public class Machine implements Interface {
         Scanner ss = new Scanner(System.in);
 
         System.out.println("------------------------------");
-        System.out.print("Fristname : ");
+        System.out.print("Firstname : ");
         name = sc.nextLine();
         System.out.print("Lastname : ");
         last = sc.nextLine();
@@ -218,7 +218,7 @@ public class Machine implements Interface {
         }
         
         System.out.println("[ PAYMENT ]");
-        System.out.print("Select Money : ");
+        System.out.print("Insert Money : ");
 
         int change = payment.addMoney(total);
         

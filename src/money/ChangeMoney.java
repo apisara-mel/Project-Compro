@@ -20,7 +20,7 @@ public class ChangeMoney {
                 System.out.println("------------------------------");
                 System.out.println("[ remaining total paid : " + (total - this.momey) + " ]");
                 System.out.println("Not Enough Money To Buy ");
-                System.out.print("Please Insert Cash More : ");
+                System.out.print("Please Insert More Cash : ");
                 input = sc.nextInt();
                 this.momey += input;
             }

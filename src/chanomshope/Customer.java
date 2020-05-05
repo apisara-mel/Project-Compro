@@ -12,6 +12,8 @@ public class Customer extends Person {
         
         super(firstname,lastname); 
         this.phonenum = phone;
+                
+                
     }
     
     public long getPhonenum() {

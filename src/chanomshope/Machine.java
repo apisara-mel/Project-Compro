@@ -8,6 +8,7 @@ public class Machine implements Interface {
 
     private Payment payment = new Payment();
     private Receipt receipt = new Receipt();
+//    private Customer cus = new Customer(name, last,phone);
     private Product product[];
     private int productCount;
     private int total;
@@ -92,7 +93,8 @@ public class Machine implements Interface {
         wantAddMenu();
     }
 
-    private void applyMember() {
+    @Override
+    public void applyMember() {
         Scanner sc = new Scanner(System.in);
         Scanner ss = new Scanner(System.in);
 
@@ -110,8 +112,10 @@ public class Machine implements Interface {
         Scanner sc = new Scanner(System.in);
         int num;
 
-        System.out.println("Want to add menu?");
-        System.out.println("[ YES 1 ]" + "\t" + "[ NO 2 ]");
+        System.out.println("What do you want?");
+        System.out.println("1.Add Menu");
+        System.out.println("2.Delete Menu");
+        System.out.println("3.Payment");
         System.out.print("Select : ");
         num = sc.nextInt();
         do {
@@ -120,6 +124,9 @@ public class Machine implements Interface {
                     useMachine();
                     break;
                 case 2:
+                    deleteMenu();
+                    break;
+                case 3:
                     break;
             }
             if (num <= 0 || num >= 3) {
@@ -127,6 +134,8 @@ public class Machine implements Interface {
             }
         } while (num <= 0 || num >= 3);
     }
+    
+    
 
     @Override
     public void caculate() throws IOException {
@@ -149,6 +158,10 @@ public class Machine implements Interface {
             System.out.println("Change : " + change + " bath");
         }
         payment.getReceipt(product, cus, change, payment);
+    }
+
+    private void deleteMenu() {
+        
     }
 
 }

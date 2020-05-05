@@ -8,12 +8,10 @@ public class Customer extends Person {
     private  Type type;
     private enum Type{general,member}
    
-    public Customer(String firstname,String lastname, long phone) {
-        
+    public Customer(String firstname,String lastname, long phone) {       
         super(firstname,lastname); 
         this.phonenum = phone;
-                
-                
+             
     }
     
     public long getPhonenum() {

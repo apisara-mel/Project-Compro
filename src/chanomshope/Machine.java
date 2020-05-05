@@ -3,12 +3,14 @@ package chanomshope;
 import InputOutput.Receipt;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Machine implements Interface {
 
     private Payment payment = new Payment();
     private Receipt receipt = new Receipt();
-//    private Customer cus = new Customer(name, last,phone);
+    private Customer cus;
     private Product product[];
     private int productCount;
     private int total;
@@ -17,6 +19,7 @@ public class Machine implements Interface {
     long phone;
 
     public Machine() {
+        this.cus = new Customer(name, last, phone);
         product = new Product[10];
     }
 
@@ -50,11 +53,20 @@ public class Machine implements Interface {
                                 applyMember();
                             } else if (num <= 0 || num >= 3) {
                                 System.out.println("!! Pls select 1 or 2 !!");
+                            } else if (num == 2) {
+                                if (productCount == 0) {
+                                    System.out.print("Fristname : ");
+                                    name = ss.nextLine();
+                                    System.out.print("Lastname : ");
+                                    last = ss.nextLine();
+                                    System.out.print("Phone Number : ");
+                                    this.phone = sc.nextLong();
+                                    makeProduct();
+                                }
+                                break;
                             }
-                            break;
                     }
                 } while (num <= 0 || num >= 3);
-
             } else if (select == 2) {
                 if (productCount == 0) {
                     System.out.print("Fristname : ");
@@ -90,7 +102,7 @@ public class Machine implements Interface {
         product.addAmount();
         System.out.println("------------------------------");
         this.product[productCount++] = product;
-        wantAddMenu();
+        whatDoYouWant();
     }
 
     @Override
@@ -103,12 +115,17 @@ public class Machine implements Interface {
         name = sc.nextLine();
         System.out.print("Lastname : ");
         last = sc.nextLine();
-        System.out.println("Phone Number : ");
+        System.out.print("Phone Number : ");
         phone = ss.nextLong();
+        try {
+            makeProduct();
+        } catch (IOException ex) {
+
+        }
 
     }
 
-    public void wantAddMenu() throws IOException {
+    public void whatDoYouWant() throws IOException {
         Scanner sc = new Scanner(System.in);
         int num;
 
@@ -121,12 +138,13 @@ public class Machine implements Interface {
         do {
             switch (num) {
                 case 1:
-                    useMachine();
+                    makeProduct();
                     break;
                 case 2:
                     deleteMenu();
                     break;
                 case 3:
+                    caculate();
                     break;
             }
             if (num <= 0 || num >= 3) {
@@ -134,12 +152,45 @@ public class Machine implements Interface {
             }
         } while (num <= 0 || num >= 3);
     }
-    
-    
+
+    public void deleteMenu() throws IOException {
+
+        System.out.println("------------------------------");
+        System.out.println("[ Your Order ]");
+        for (int i = 0; i < product.length; i++) {
+            System.out.println(("[ " + i + 1 + "]") + product[i].getNameSelectFlavour() + "\n"
+                    + product[i].getNameSelectTopping() + "\n"
+                    + product[i].getSize());
+            System.out.println("------------------------------");
+
+        }
+        System.out.print("Select : ");
+        Scanner sc = new Scanner(System.in);
+        int select = sc.nextInt();
+
+        for (int i = 0; i < product.length; i++) {
+            if (select == i + 1) {
+
+                System.out.println("------------------------------");
+                System.out.println(" Are you sure? ");
+                System.out.println("[ YES 1 ]" + "\t" + "[ NO 2 ]");
+                System.out.print("Select : ");
+                switch (select) {
+                    case 1:
+                        this.product[i] = null;
+                        break;
+                    case 2:
+                        break;
+                }
+                whatDoYouWant();
+            }
+        }
+
+    }
 
     @Override
     public void caculate() throws IOException {
-        Customer cus = new Customer(name, last, phone + 'L');
+        cus = new Customer(name, last, phone + 'L');
 
         for (int i = 0; i < product.length; i++) {
             if (product[i] != null) {
@@ -158,10 +209,6 @@ public class Machine implements Interface {
             System.out.println("Change : " + change + " bath");
         }
         payment.getReceipt(product, cus, change, payment);
-    }
-
-    private void deleteMenu() {
-        
     }
 
 }

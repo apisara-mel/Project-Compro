@@ -6,8 +6,8 @@ public class ChangeMoney {
 
     private int change;
     private int total;
-    Scanner sc = new Scanner(System.in);
     private int momey = 0;
+    Scanner sc = new Scanner(System.in);
 
     public int changeMoney(int total) {
         this.total = total;
@@ -39,6 +39,5 @@ public class ChangeMoney {
     public int getMomey() {
         return momey;
     }
-
 
 }

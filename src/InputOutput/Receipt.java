@@ -16,15 +16,13 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 
-public class Receipt {
-    
+public class Receipt {    
     public void writeReciept(Product pd[], Customer ct,int change, Payment pm, int discount) throws IOException{
         try{
             FileInputStream file = new FileInputStream("file/" + ct.getFirstname() + ct.getLastname() +"Receipt_log.txt" );
         }catch(FileNotFoundException ex){
             FileWriter fw = new FileWriter("file/" + ct.getFirstname() + ct.getLastname() + "Receipt_log.txt");
-        }
-        
+        } 
         Path file = Paths.get("file/" + ct.getFirstname() + ct.getLastname() + "Receipt_log.txt"); 
         BufferedWriter writer = Files.newBufferedWriter(file, StandardCharsets.UTF_8);
         StringBuilder result = new StringBuilder();

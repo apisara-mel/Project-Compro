@@ -9,11 +9,11 @@ public class Product {
 
     private Flavour[] flavour;
     private Topping[] topping;
+    private Size size;
     private int flavorCount;
     private int toppingCount;
     private Flavour selectFlavour;
     private Topping selectTopping;
-    private Size size;
     private int total;
     private int amount;
     Scanner sc = new Scanner(System.in);
@@ -43,14 +43,12 @@ public class Product {
         for (int i = 0; i < topping.length; i++) {
             toppingCount++;
         }
-
     }
     
     public void addFlavour() {
         for (int i = 0; i < flavour.length; i++) {
             System.out.println((i + 1 + " : ") + flavour[i].getFlavourName());
-        }
-        
+        }     
         Scanner sc = new Scanner(System.in);
         System.out.print("You Choose Flavour [1-" + flavorCount + "] : ");
         int input = sc.nextInt();

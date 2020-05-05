@@ -21,8 +21,8 @@ public class Payment {
         return c.getMomey();
     }
 
-    public void getReceipt(Product[] pd, Customer ct, int change, Payment pm) throws IOException {
-        receipt.writeReciept(pd, ct, change, pm);
+    public void getReceipt(Product[] pd, Customer ct, int change, Payment pm,int discount) throws IOException {
+        receipt.writeReciept(pd, ct, change, pm, discount);
     }
 
 

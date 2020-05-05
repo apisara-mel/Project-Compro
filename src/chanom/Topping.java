@@ -5,7 +5,6 @@ package chanom;
 public class Topping {
     private int price;
     private String toppingName;
-    private int count;
 
     public Topping(String toppingName, int price) {
         this.price = price;

@@ -2,7 +2,6 @@
 package InputOutput;
 
 import chanomshope.Customer;
-import chanomshope.Machine;
 import chanomshope.Payment;
 import chanomshope.Product;
 import java.io.BufferedWriter;
@@ -19,14 +18,14 @@ import java.time.LocalDateTime;
 
 public class Receipt {
     
-    public void writeReciept(Product pd[], Customer ct,int change, Payment pm) throws IOException{
+    public void writeReciept(Product pd[], Customer ct,int change, Payment pm, int discount) throws IOException{
         try{
             FileInputStream file = new FileInputStream("file/" + ct.getFirstname() + ct.getLastname() +"Receipt_log.txt" );
         }catch(FileNotFoundException ex){
             FileWriter fw = new FileWriter("file/" + ct.getFirstname() + ct.getLastname() + "Receipt_log.txt");
         }
         
-        Path file = Paths.get("file/" + ct.getFirstname() + ct.getLastname() + "Receipt_log"); 
+        Path file = Paths.get("file/" + ct.getFirstname() + ct.getLastname() + "Receipt_log.txt"); 
         BufferedWriter writer = Files.newBufferedWriter(file, StandardCharsets.UTF_8);
         StringBuilder result = new StringBuilder();
         LocalDateTime time = LocalDateTime.now();
@@ -53,6 +52,8 @@ public class Receipt {
         result.append("--------------------------------------------------------------------" + "\n");
         result.append("Cash" + "\t\t\t\t\t\t\t");
         result.append(pm.getTotal() + "\n");
+        result.append("Discount " +"\t\t\t\t\t\t");
+        result.append(discount + "\n");        
         //---------------------------------------------------------------------------------//
         result.append("--------------------------------------------------------------------" + "\n");
         result.append("Change" + "\t\t\t\t\t\t\t");

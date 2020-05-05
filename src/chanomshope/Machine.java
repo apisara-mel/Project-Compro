@@ -162,7 +162,8 @@ public class Machine implements Interface {
         } while (num < 1 || num > 4);
     }
 
-    public void deleteMenu() throws IOException {
+    @Override
+    public void deleteMenu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("------------------------------");
         System.out.println("[ Your Order ]");
@@ -191,7 +192,11 @@ public class Machine implements Interface {
             case 2:
                 break;
         }
-        whatDoYouWant();
+        try {
+            whatDoYouWant();
+        } catch (IOException ex) {
+            
+        }
 
     }
 
@@ -232,13 +237,7 @@ public class Machine implements Interface {
         if (change > 0) {
             System.out.println("Change : " + change + " bath");
         }
-        payment.getReceipt(product, cus, change, payment);
+        payment.getReceipt(product, cus, change, payment, discount);
     }
-
-    public int getDiscount() {
-        return discount;
-    }
-    
-    
 
 }

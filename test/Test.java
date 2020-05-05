@@ -1,5 +1,5 @@
 
-import InputOutput.Receipt;
+
 import chanomshope.Machine;
 import java.io.IOException;
 

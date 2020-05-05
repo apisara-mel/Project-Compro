@@ -25,5 +25,6 @@ public class Payment {
         receipt.writeReciept(pd, ct, change, pm);
     }
 
+
     
 }

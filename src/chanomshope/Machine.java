@@ -18,6 +18,7 @@ public class Machine implements Interface {
     String last = null;
     long phone;
     private boolean isMember;
+    int discount = 0;
 
     public Machine() {
         this.cus = new Customer(name, last, phone);
@@ -138,6 +139,7 @@ public class Machine implements Interface {
         System.out.println("1.Add Menu");
         System.out.println("2.Delete Menu");
         System.out.println("3.Payment");
+        System.out.println("4.Exit");
         System.out.print("Select : ");
         num = sc.nextInt();
         do {
@@ -151,11 +153,13 @@ public class Machine implements Interface {
                 case 3:
                     caculate();
                     break;
+                case 4:
+                    break;
             }
-            if (num < 1 || num > 3) {
+            if (num < 1 || num > 4) {
                 System.out.println("Pls select 1 or 2 : ");
             }
-        } while (num < 1 || num > 3);
+        } while (num < 1 || num > 4);
     }
 
     public void deleteMenu() throws IOException {
@@ -182,7 +186,7 @@ public class Machine implements Interface {
 
         switch (input) {
             case 1:
-                this.product[select] = null;
+                this.product[select-1] = null;   
                 break;
             case 2:
                 break;
@@ -204,25 +208,37 @@ public class Machine implements Interface {
         System.out.println("------------------------------");
         System.out.println("Total : " + total + " bath");
         System.out.println("------------------------------");
+        if(total == 0){
+            whatDoYouWant();
+        }
+        
         System.out.println("[ PAYMENT ]");
         System.out.print("Select Money : ");
 
         int change = payment.addMoney(total);
+        
         if (isMember == true) {
-            int discount = 0;
+            
             for (int i = 0; i < product.length; i++) {
                 if(product[i]!=null){
                discount +=(product[i].getAmount()*10);
                 }
             }
-            System.out.println("Discount member "+discount+" bath");
+            System.out.println("Discount member "+ discount +" bath");
             change += discount;
         }
         System.out.println("------------------------------");
+        
         if (change > 0) {
             System.out.println("Change : " + change + " bath");
         }
         payment.getReceipt(product, cus, change, payment);
     }
+
+    public int getDiscount() {
+        return discount;
+    }
+    
+    
 
 }

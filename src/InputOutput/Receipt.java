@@ -60,7 +60,7 @@ public class Receipt {
         result.append(change + "\n");
         result.append("--------------------------------------------------------------------" + "\n");
         //---------------------------------------------------------------------------------//
-        result.append("\t\t\t" + "Thank You");
+        result.append("\t\t\t" + "Thank You ♥");
         
         writer.write(result.toString());
         writer.close();

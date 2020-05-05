@@ -18,13 +18,13 @@ public class Flavour {
     public int getPrice() {
         return price;
     }
-
-    @Override
-    public String toString() {
-        StringBuffer buff = new StringBuffer();
-        buff.append("Flavour : ");
-        buff.append(flavourName);
-        buff.append("\t" + price + " bath");
-        return buff.toString();
-    }
+//
+//    @Override
+//    public String toString() {
+//        StringBuffer buff = new StringBuffer();
+//        buff.append("Flavour : ");
+//        buff.append(flavourName);
+//        buff.append("\t" + price + " bath");
+//        return buff.toString();
+//    }
 }

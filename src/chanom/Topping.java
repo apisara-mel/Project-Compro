@@ -18,15 +18,14 @@ public class Topping {
     public String getToppingName() {
         return toppingName;
     }
-
-    @Override
-    public String toString() {
-        StringBuffer buff = new StringBuffer();
-        buff.append("Topping : ");
-        buff.append(toppingName);
-        buff.append("\t" + price + " bath");
-        return buff.toString();
-    }  
+//
+//    @Override
+//    public String toString() {
+//        StringBuffer buff = new StringBuffer();
+//        buff.append("Topping : ");
+//        buff.append(toppingName);
+//        buff.append("\t" + price + " bath");
+//        return buff.toString();
+//    }  
    
-
 }

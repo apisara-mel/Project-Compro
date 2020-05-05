@@ -9,7 +9,7 @@ public class Test {
         Machine m = new Machine();
         
         m.useMachine();
-        m.caculate();
+        
         
     }
     

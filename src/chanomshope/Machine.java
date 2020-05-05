@@ -17,6 +17,7 @@ public class Machine implements Interface {
     String name = null;
     String last = null;
     long phone;
+    private boolean isMember;
 
     public Machine() {
         this.cus = new Customer(name, last, phone);
@@ -55,6 +56,8 @@ public class Machine implements Interface {
                                 System.out.println("!! Pls select 1 or 2 !!");
                             } else if (num == 2) {
                                 if (productCount == 0) {
+
+                                    this.isMember = true;
                                     System.out.print("Fristname : ");
                                     name = ss.nextLine();
                                     System.out.print("Lastname : ");
@@ -68,6 +71,8 @@ public class Machine implements Interface {
                     }
                 } while (num <= 0 || num >= 3);
             } else if (select == 2) {
+
+                this.isMember = true;
                 if (productCount == 0) {
                     System.out.print("Fristname : ");
                     name = ss.nextLine();
@@ -147,43 +152,42 @@ public class Machine implements Interface {
                     caculate();
                     break;
             }
-            if (num <= 0 || num >= 3) {
+            if (num < 1 || num > 3) {
                 System.out.println("Pls select 1 or 2 : ");
             }
-        } while (num <= 0 || num >= 3);
+        } while (num < 1 || num > 3);
     }
 
     public void deleteMenu() throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("------------------------------");
         System.out.println("[ Your Order ]");
-        for (int i = 0; i < product.length; i++) {
-            System.out.println((i + 1 + ". ") + product[i].getNameSelectFlavour() + "\n"
-                    + product[i].getNameSelectTopping() + "\n"
-                    + product[i].getSize());
 
+        for (int i = 0; i < product.length; i++) {
+            if (product[i] != null) {
+                System.out.println((i + 1 + ". ") + product[i].getNameSelectFlavour() + "\n"
+                        + product[i].getNameSelectTopping() + "\n"
+                        + product[i].getSize());
+            }
         }
 
         System.out.print("Select : ");
         int select = sc.nextInt();
 
-        for (int i = 0; i < product.length; i++) {
-            if (select == i + 1) {
+        System.out.println("------------------------------");
+        System.out.println(" Are you sure? ");
+        System.out.println("[ YES 1 ]" + "\t" + "[ NO 2 ]");
+        System.out.print("Select : ");
+        int input = sc.nextInt();
 
-                System.out.println("------------------------------");
-                System.out.println(" Are you sure? ");
-                System.out.println("[ YES 1 ]" + "\t" + "[ NO 2 ]");
-                System.out.print("Select : ");
-                switch (select) {
-                    case 1:
-                        this.product[i] = null;
-                        break;
-                    case 2:
-                        break;
-                }
-                whatDoYouWant();
-            }
+        switch (input) {
+            case 1:
+                this.product[select] = null;
+                break;
+            case 2:
+                break;
         }
+        whatDoYouWant();
 
     }
 
@@ -202,7 +206,18 @@ public class Machine implements Interface {
         System.out.println("------------------------------");
         System.out.println("[ PAYMENT ]");
         System.out.print("Select Money : ");
+
         int change = payment.addMoney(total);
+        if (isMember == true) {
+            int discount = 0;
+            for (int i = 0; i < product.length; i++) {
+                if(product[i]!=null){
+               discount +=(product[i].getAmount()*10);
+                }
+            }
+            System.out.println("Discount member "+discount+" bath");
+            change += discount;
+        }
         System.out.println("------------------------------");
         if (change > 0) {
             System.out.println("Change : " + change + " bath");

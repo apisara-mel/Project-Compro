@@ -100,6 +100,7 @@ public class Product {
 
             if (sml < 1 || sml > 3) {
                 System.out.println("!! INCORRECT !!");
+                System.out.print("Choose size [1-3]: ");
             } else if (sml > 0 || sml < 4) {
                 System.out.print("You choose size: ");
 

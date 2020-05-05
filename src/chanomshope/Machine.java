@@ -154,18 +154,17 @@ public class Machine implements Interface {
     }
 
     public void deleteMenu() throws IOException {
-
+        Scanner sc = new Scanner(System.in);
         System.out.println("------------------------------");
         System.out.println("[ Your Order ]");
         for (int i = 0; i < product.length; i++) {
-            System.out.println(("[ " + i + 1 + "]") + product[i].getNameSelectFlavour() + "\n"
+            System.out.println((i + 1 + ". ") + product[i].getNameSelectFlavour() + "\n"
                     + product[i].getNameSelectTopping() + "\n"
                     + product[i].getSize());
-            System.out.println("------------------------------");
 
         }
+
         System.out.print("Select : ");
-        Scanner sc = new Scanner(System.in);
         int select = sc.nextInt();
 
         for (int i = 0; i < product.length; i++) {
